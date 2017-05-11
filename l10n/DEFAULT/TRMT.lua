@@ -18,9 +18,10 @@ end
 
 TRMT.SUPPORT_AIRCRAFT = {
   UNITS= {
-    { NAME='Tanker Texaco', COUNT=1, TOTAL=0  },
-    { NAME='Arco',          COUNT=1, TOTAL=0  },
-    { NAME='AWACS',         COUNT=1, TOTAL=10 },
+    { NAME='Tanker Texaco', COUNT=1, TOTAL=0 , DELAY=0 },
+    { NAME='Arco',          COUNT=1, TOTAL=0 , DELAY=0 },
+    { NAME='Shell',         COUNT=1, TOTAL=0 , DELAY=1800 },
+    { NAME='AWACS',         COUNT=1, TOTAL=10, DELAY=0 },
   },
   SCHEDULER_INTERVAL = 120,
   SPAWNERS = {},
@@ -40,7 +41,7 @@ TRMT.SUPPORT_AIRCRAFT.INITIALIZE = function()
                TRMT.DEBUG('(re)Spawning '..group.GroupName)
              end
            )
-           :SpawnScheduled( TRMT.SUPPORT_AIRCRAFT.SCHEDULER_INTERVAL, 0 ) 
+           :SpawnScheduled( TRMT.SUPPORT_AIRCRAFT.SCHEDULER_INTERVAL, unit.DELAY ) 
     )    
   end
   TRMT.INFO('SUPPORT AIRCRAFTS: INIT: DONE')
